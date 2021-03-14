@@ -1,1 +1,1 @@
-import freq_anal
+from . import freq_anal 
