@@ -11,7 +11,7 @@ setup(
     license = "Lawrence Berkeley National Laboratory",
     keywords = "IMPACT",
     url = "",
-    packages=['utils'],
+    packages=['kilean_utils'],
     classifiers=[
         "Development Status :: 1 - Planning",
         "Topic :: Utilities",
