@@ -1,1 +1,1 @@
-from naff import *
+import freq_anal
