@@ -6,7 +6,7 @@ pi = np.pi
 
 def getWindow(T):
   window = (1.0+np.cos(np.pi*(-1.0+2.0/(T+1.0)*np.arange(1,T+1))))**window_id
-  return window = window/np.sum(window)
+  return window/np.sum(window)
 
 def getAmp(signal,window,tune,T):
   return np.sum(signal*window*np.exp(-2j*pi*tune*np.arange(T)))
