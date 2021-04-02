@@ -4,7 +4,7 @@ from copy import deepcopy as copy
 pi = np.pi
 
 
-def getWindow(T):
+def getWindow(window_id,T):
   window = (1.0+np.cos(np.pi*(-1.0+2.0/(T+1.0)*np.arange(1,T+1))))**window_id
   return window/np.sum(window)
 
