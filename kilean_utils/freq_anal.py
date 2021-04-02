@@ -29,9 +29,9 @@ def naff(nmode,signal,window_id=1):
       return -np.abs(getAmp(signal,window,tune,T))
       #return -np.abs(np.sum(signal*window*np.exp(-2j*pi*tune*np.arange(T))))
     tune = np.argmax(np.abs(np.fft.fft(signal)))/T
-    result = opt.differential_evolution(loss,((tune-2.2/T,tune+2.2/T),),popsize=16,tol=0.001)
-    if result.message!='Optimization terminated successfully.':
-      result = opt.minimize(loss, result.x[0])
+    result = opt.differential_evolution(loss,((tune-2.2/T,tune+2.2/T),),popsize=16,tol=0.001,polish=False)
+#     if result.message!='Optimization terminated successfully.':
+#       result = opt.minimize(loss, result.x[0])
     return result
 
   tunes = []
