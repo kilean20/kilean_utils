@@ -4,6 +4,10 @@ from copy import deepcopy as copy
 pi = np.pi
 
 
+def getAmp(signal,window,tune,T):
+  return np.sum(signal*window*np.exp(-2j*pi*tune*np.arange(T)))
+
+
 def naff(nmode,signal,window_id=1):
   """
   tunes,amps,substracted_signals = naff(nmode,signal)
@@ -18,7 +22,8 @@ def naff(nmode,signal,window_id=1):
   def getPeakInfo(signal):
     T = len(signal)
     def loss(tune):
-      return -np.abs(np.sum(signal*window*np.exp(-2j*pi*tune*np.arange(T))))
+      return -np.abs(getAmp(signal,window,tune,T))
+      #return -np.abs(np.sum(signal*window*np.exp(-2j*pi*tune*np.arange(T))))
     tune = np.argmax(np.abs(np.fft.fft(signal)))/T
     result = opt.differential_evolution(loss,((tune-2.2/T,tune+2.2/T),),popsize=9)
     return result
