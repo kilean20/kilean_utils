@@ -4,7 +4,9 @@ from copy import deepcopy as copy
 pi = np.pi
 
 
-def getAmp(signal,window,tune,T):
+def getAmp(signal,window_id,tune,T):
+  window = (1.0+np.cos(np.pi*(-1.0+2.0/(T+1.0)*np.arange(1,T+1))))**window_id
+  window = window/np.sum(window)
   return np.sum(signal*window*np.exp(-2j*pi*tune*np.arange(T)))
 
 
