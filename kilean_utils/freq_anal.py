@@ -4,9 +4,11 @@ from copy import deepcopy as copy
 pi = np.pi
 
 
-def getAmp(signal,window_id,tune,T):
+def getWindow(T):
   window = (1.0+np.cos(np.pi*(-1.0+2.0/(T+1.0)*np.arange(1,T+1))))**window_id
-  window = window/np.sum(window)
+  return window = window/np.sum(window)
+
+def getAmp(signal,window,tune,T):
   return np.sum(signal*window*np.exp(-2j*pi*tune*np.arange(T)))
 
 
@@ -28,6 +30,8 @@ def naff(nmode,signal,window_id=1):
       #return -np.abs(np.sum(signal*window*np.exp(-2j*pi*tune*np.arange(T))))
     tune = np.argmax(np.abs(np.fft.fft(signal)))/T
     result = opt.differential_evolution(loss,((tune-2.2/T,tune+2.2/T),),popsize=4,tol=0.001)
+    if result.message!='Optimization terminated successfully.':
+      result = opt.minimize(loss, result.x[0])
     return result
 
   tunes = []
