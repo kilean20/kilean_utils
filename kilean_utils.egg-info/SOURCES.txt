@@ -1,6 +1,9 @@
 setup.py
 kilean_utils/__init__.py
+kilean_utils/accphys.py
+kilean_utils/data.py
 kilean_utils/freq_anal.py
+kilean_utils/integrate.py
 kilean_utils.egg-info/PKG-INFO
 kilean_utils.egg-info/SOURCES.txt
 kilean_utils.egg-info/dependency_links.txt
