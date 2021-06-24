@@ -6,7 +6,7 @@ _X0 = {}
 _W0 = {}
 
 for order in _ORDERS:
-  _x0,_w0 = roots_legendre(_ORDERS)
+  _x0,_w0 = roots_legendre(order)
   _X0[order]=_x0
   _W0[order]=_w0
   
