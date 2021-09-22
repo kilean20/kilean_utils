@@ -44,7 +44,7 @@ def naff(nmode,signal,window_id=1):
     if result.message!='Optimization terminated successfully.':
       print('Optimization failed at '+str(i+1)+'-th mode')
       break
-    tunes.append(copy(result.x))
+    tunes.append(copy(result.x[0]))
     amps.append(np.sum(X*np.exp(-2j*pi*tunes[-1]*np.arange(T)))/T)
 
     X = X - amps[-1]*np.exp(2j*pi*tunes[-1]*np.arange(T))
