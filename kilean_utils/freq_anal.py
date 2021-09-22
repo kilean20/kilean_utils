@@ -50,4 +50,4 @@ def naff(nmode,signal,window_id=1):
     X = X - amps[-1]*np.exp(2j*pi*tunes[-1]*np.arange(T))
     subtracted_signals.append(copy(X))
 
-  return tunes,amps,subtracted_signals
+  return np.array(tunes),np.array(amps),np.array(subtracted_signals)
