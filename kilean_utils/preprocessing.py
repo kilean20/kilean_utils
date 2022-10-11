@@ -1,6 +1,11 @@
-from sklearn.preprocessing import MinMaxScaler
+import numpy as np
+import pandas as pd
 
-class MinMaxScaler(MinMaxScaler):
+__all__ = ["MinMaxScaler","StandardScaler"]
+           
+           
+from sklearn.preprocessing import MinMaxScaler as minmaxscaler
+class MinMaxScaler(minmaxscaler):
     """Standardize features by removing the mean and scaling to unit variance.
     The standard score of a sample `x` is calculated as:
         z = (x - u) / s
@@ -155,9 +160,8 @@ class MinMaxScaler(MinMaxScaler):
 
 
 
-from sklearn.preprocessing import StandardScaler
-
-class StandardScaler(StandardScaler):
+from sklearn.preprocessing import StandardScaler as stdscaler
+class StandardScaler(stdscaler):
     """Transform features by scaling each feature to a given range.
     This estimator scales and translates each feature individually such
     that it is in the given range on the training set, e.g. between
