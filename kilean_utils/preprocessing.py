@@ -291,7 +291,7 @@ class StandardScaler(stdscaler):
             if self.with_std:
                 X = X*self.scale_[icol]
             if self.with_mean:
-                X = X+self.mean_
+                X = X+self.mean_[icol]
             return X
         else:
             return super(StandardScaler, self).inverse_transform(X,copy=copy)
